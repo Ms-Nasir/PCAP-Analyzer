@@ -1,62 +1,88 @@
-**PCAP Analyzer Tool**
+# PCAP Analyzer
 
-:pushpin:**Overview**
+A Python-based **network security and traffic analysis tool** that analyzes Packet Capture (PCAP) files and applies machine learning to classify network traffic as **normal or anomalous**.
 
-The PCAP Analyzer Tool is a machine learning-based network security tool that analyzes packet capture (PCAP) files to detect potential security threats. It leverages Scapy, PyShark, and a trained Random Forest model to classify network traffic as either normal or anomalous.
+The project combines **Scapy, PyShark, feature extraction, and a trained Random Forest classifier** to support PCAP analysis, anomaly detection, and network security investigation.
 
-:pushpin:**Features**
+---
 
-1. PCAP File Parsing: Extracts essential network traffic details from PCAP files.
+## 🔎 Overview
 
-2. Feature Extraction: Computes key traffic metrics such as source/destination IP counts and packet lengths.
+PCAP Analyzer is designed to help analyze captured network traffic and identify potentially suspicious or anomalous activity.
 
-3. Machine Learning-Based Detection: Utilizes a pre-trained Random Forest Classifier for anomaly detection.
+The tool processes PCAP files, extracts relevant network traffic information, generates features for analysis, and uses a pre-trained machine learning model to classify traffic.
 
-4. Automated Threat Alerts: Identifies potential threats in new network traffic.
+This project demonstrates practical application of:
 
-5. Performance Evaluation: Provides accuracy, precision, and recall metrics.
+- Network traffic analysis
+- PCAP analysis
+- Feature extraction
+- Machine learning for security
+- Anomaly detection
+- Network security investigation
 
-:pushpin:**Installation**
+---
 
-Ensure you have Python 3.x installed and then install the required dependencies:
+## 🚀 Key Features
 
-pip install scapy pyshark pandas numpy scikit-learn joblib
+### 📡 PCAP File Parsing
+Extracts relevant network traffic information from PCAP files for further analysis.
 
-:pushpin:**Usage**
+### 🔍 Feature Extraction
+Generates traffic-related features such as source/destination information, packet characteristics, and other network metrics used for analysis and classification.
 
-1. Load a PCAP File and Extract Network Data
+### 🧠 Machine Learning Detection
+Uses a trained **Random Forest classifier** to classify network traffic as normal or anomalous.
 
-from pcap_analyzer import load_pcap
+### 🚨 Anomaly Detection
+Analyzes new network traffic and identifies potentially suspicious activity based on the trained model.
 
-pcap_df = load_pcap("network_traffic.pcap")
-print(pcap_df.head())
+### 📊 Model Evaluation
+Supports evaluation of the machine learning model using classification performance metrics such as:
 
-2. Extract Features for Machine Learning
+- Accuracy
+- Precision
+- Recall
 
-from pcap_analyzer import extract_features
+---
 
-feature_df = extract_features(pcap_df)
-print(feature_df)
+## 🛠️ Technologies Used
 
-3. Train the Machine Learning Model
+| Technology | Purpose |
+|---|---|
+| **Python** | Core development |
+| **Scapy** | Packet analysis and network traffic processing |
+| **PyShark** | PCAP and packet analysis |
+| **Pandas** | Data processing and analysis |
+| **NumPy** | Numerical processing |
+| **Scikit-learn** | Machine learning |
+| **Joblib** | Model persistence |
+| **PCAP** | Network traffic data |
 
-from pcap_analyzer import train_model
-train_model("network_dataset.csv")  # Trains and saves the model
+---
 
-4. Detect Anomalies in New PCAP Files
+## 🧠 Machine Learning Workflow
 
-from pcap_analyzer import detect_anomalies
-
-detect_anomalies("new_traffic.pcap")
-
-:pushpin:**Future Enhancements**
-
-Integration with Deep Learning for advanced threat detection.
-
-Real-time PCAP analysis for continuous monitoring.
-
-Web-based UI for user-friendly interaction.
-
-:pushpin:**Author**
-
-Developed by Muntaha Nasir.
+```text
+              PCAP File
+                  │
+                  ▼
+          Packet / Traffic Parsing
+                  │
+                  ▼
+           Feature Extraction
+                  │
+                  ▼
+           Data Preprocessing
+                  │
+                  ▼
+        Random Forest Classifier
+                  │
+                  ▼
+       ┌──────────┴──────────┐
+       │                     │
+     Normal              Anomalous
+       │                     │
+       └──────────┬──────────┘
+                  ▼
+          Security Analysis
