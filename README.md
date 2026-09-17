@@ -60,5 +60,3 @@ Web-based UI for user-friendly interaction.
 :pushpin:**Author**
 
 Developed by Muntaha Nasir.
-
-For inquiries, contact muntahanasir786@gmail.com.
